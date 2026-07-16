@@ -1,0 +1,8 @@
+version: "2"
+
+run:
+  build-tags:
+    - wireinject
+
+linters:
+  default: standard
