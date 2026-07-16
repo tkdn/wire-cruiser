@@ -1,0 +1,4 @@
+structapp.InitializeApp → *structapp.App
+└─ wire.Struct(App) → *structapp.App
+   └─ wire.FieldsOf(Config.DB) → *structapp.DB
+      └─ structapp.LoadConfig → *structapp.Config

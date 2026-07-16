@@ -1,0 +1,3 @@
+missingapp.InitializeApp → *missingapp.App
+└─ missingapp.NewApp → *missingapp.App
+   └─ [MISSING] *missingapp.DB

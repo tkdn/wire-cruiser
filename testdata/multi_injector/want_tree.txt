@@ -1,0 +1,6 @@
+multiapp.InitializeApp → *multiapp.App
+└─ multiapp.NewApp → *multiapp.App
+   └─ multiapp.NewGreeter → *multiapp.Greeter
+
+multiapp.InitializeGreeter → *multiapp.Greeter
+└─ multiapp.NewGreeter → *multiapp.Greeter

@@ -1,0 +1,3 @@
+basic.InitializeApp → *basic.App
+└─ basic.NewApp → *basic.App
+   └─ basic.NewGreeter → *basic.Greeter

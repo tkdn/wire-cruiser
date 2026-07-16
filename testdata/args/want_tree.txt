@@ -1,0 +1,3 @@
+argsapp.InitializeApp → *argsapp.App
+└─ argsapp.NewApp → *argsapp.App
+   └─ (arg) *argsapp.Config

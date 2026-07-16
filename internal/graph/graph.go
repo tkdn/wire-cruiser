@@ -56,12 +56,13 @@ type Diagnostic struct {
 
 // Injector is the dependency graph rooted at one injector function.
 type Injector struct {
-	Name   string
-	Pkg    string
-	Args   []types.Type
-	Result types.Type
-	Roots  []*Node
-	Diags  []Diagnostic
+	Name    string
+	Pkg     string // 定義パッケージの import パス
+	PkgName string // 定義パッケージ名(表示用)
+	Args    []types.Type
+	Result  types.Type
+	Roots   []*Node
+	Diags   []Diagnostic
 }
 
 // TypeString renders t with package-name qualifiers (e.g. "*app.App").
@@ -117,7 +118,7 @@ func Build(in loader.Injector) (*Injector, error) {
 	}
 	b.indexPackages(pkg)
 
-	inj := &Injector{Name: fn.Name(), Pkg: pkg.PkgPath, Result: result}
+	inj := &Injector{Name: fn.Name(), Pkg: pkg.PkgPath, PkgName: pkg.Name, Result: result}
 	for v := range sig.Params().Variables() {
 		t := v.Type()
 		inj.Args = append(inj.Args, t)

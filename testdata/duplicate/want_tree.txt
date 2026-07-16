@@ -1,0 +1,4 @@
+dupapp.InitializeApp → *dupapp.App
+└─ dupapp.NewApp → *dupapp.App
+   ├─ dupapp.NewGreeterA → *dupapp.Greeter
+   └─ dupapp.NewGreeterB → *dupapp.Greeter
