@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"os"
 	"strings"
 
 	"github.com/tkdn/wire-cruiser/internal/graph"
@@ -11,14 +12,24 @@ import (
 	"github.com/tkdn/wire-cruiser/internal/render"
 )
 
+// Stdout and Stderr distinguish the two writer roles so that wire can
+// tell them apart when assembling App.
+type (
+	Stdout io.Writer
+	Stderr io.Writer
+)
+
+func provideStdout() Stdout { return os.Stdout }
+func provideStderr() Stderr { return os.Stderr }
+
 // App is the CLI application. The graph goes to Out, warnings and
 // errors go to Err.
 type App struct {
-	Out io.Writer
-	Err io.Writer
+	Out Stdout
+	Err Stderr
 }
 
-func NewApp(out, errw io.Writer) *App {
+func NewApp(out Stdout, errw Stderr) *App {
 	return &App{Out: out, Err: errw}
 }
 

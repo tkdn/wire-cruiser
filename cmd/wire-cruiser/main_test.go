@@ -88,6 +88,24 @@ func TestRun_MultiInjector(t *testing.T) {
 	}
 }
 
+// TestRun_Dogfood は wire-cruiser 自身の injector を可視化できることを
+// 検証する(カレントディレクトリは cmd/wire-cruiser)。
+func TestRun_Dogfood(t *testing.T) {
+	stdout, stderr, code := run(t, ".")
+	if code != 0 {
+		t.Errorf("exit code = %d, want 0 (stderr: %s)", code, stderr)
+	}
+	for _, want := range []string{
+		"main.initializeApp → *main.App",
+		"main.provideStdout → main.Stdout",
+		"main.provideStderr → main.Stderr",
+	} {
+		if !strings.Contains(stdout, want) {
+			t.Errorf("stdout does not contain %q:\n%s", want, stdout)
+		}
+	}
+}
+
 func TestRun_LoadError(t *testing.T) {
 	_, stderr, code := run(t, testdataDir(t, "no_such_dir"))
 	if code != 2 {
