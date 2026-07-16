@@ -1,0 +1,4 @@
+valueapp.InitializeApp → *valueapp.App
+└─ valueapp.NewApp → *valueapp.App
+   ├─ wire.Value → valueapp.Config
+   └─ wire.InterfaceValue → io.Writer

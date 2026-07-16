@@ -1,0 +1,14 @@
+version: "2"
+
+run:
+  build-tags:
+    - wireinject
+
+linters:
+  default: standard
+  settings:
+    errcheck:
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln

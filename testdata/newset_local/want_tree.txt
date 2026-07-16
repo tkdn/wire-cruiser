@@ -1,0 +1,3 @@
+nslocal.InitializeApp → *nslocal.App
+└─ nslocal.NewApp → *nslocal.App
+   └─ nslocal.NewGreeter → *nslocal.Greeter

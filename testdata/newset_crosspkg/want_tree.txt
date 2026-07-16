@@ -1,0 +1,3 @@
+nscross.InitializeApp → *nscross.App
+└─ nscross.NewApp → *nscross.App
+   └─ service.NewService → *service.Service

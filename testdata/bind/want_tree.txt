@@ -1,0 +1,3 @@
+bindapp.InitializeApp → *bindapp.App
+└─ bindapp.NewApp → *bindapp.App
+   └─ bindapp.NewFooImpl → bindapp.Fooer (bind: *bindapp.FooImpl)
