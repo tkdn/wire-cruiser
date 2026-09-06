@@ -32,7 +32,7 @@ jobs:
         run: go test -coverprofile=coverage.out ./...
       - name: Check wire_gen.go is up to date
         run: go tool wire diff ./cmd/wire-cruiser
-      - uses: k1LoW/octocov-action@b3b6ee60482a667950f87553abf1df63217235d9 # v1.5.1
+      - uses: k1LoW/octocov-action@a167dc0dee441b7ffc45e1b862ab55ec0d87f278 # v1.5.2
 
   lint:
     runs-on: ubuntu-latest
